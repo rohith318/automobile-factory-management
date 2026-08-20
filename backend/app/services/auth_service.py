@@ -9,7 +9,13 @@ from app.models.user import User
 from app.schemas.auth import RegisterRequest
 
 
-SECRET_KEY = "automobile-factory-secret-key"
+import os
+
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "automobile-factory-secret-key"
+)
+
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
