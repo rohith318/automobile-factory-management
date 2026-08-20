@@ -10,9 +10,14 @@ on:
 
 jobs:
 
-  backend-check:
+    backend-check:
     name: Backend Check
     runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: "sqlite:///./ci_test.db"
+      SECRET_KEY: "ci-test-secret-key"
+      ALGORITHM: "HS256"
 
     steps:
       - name: Checkout code
